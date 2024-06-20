@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .invoice-box {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1.5px solid black;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            color: #555;
+        }
+        .invoice-box table {
+            width: 100%;
+            line-height: 24px;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        .invoice-box table td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+        .invoice-box table tr.heading td {
+            background: #0575FA;
+            border-bottom: 1.5px solid #ddd;
+            font-weight: bold;
+            color: #fff;
+        }
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+        .invoice-box table tr.item td {
+            border-bottom: 1.5px solid #eee;
+        }
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+        .invoice-box table tr.total td:nth-child(4) {
+            border-top: 1.5px solid #eee;
+            font-weight: bold;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1.5px solid black;
+        }
+        .invoice-header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .invoice-header .company-details {
+            text-align: right;
+        }
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .invoice-details .invoice-to,
+        .invoice-details .invoice-from {
+            width: 45%;
+        }
+        .invoice-details .invoice-from {
+            text-align: right;
+        }
+        .invoice-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .terms {
+            margin-top: 20px;
+        }
+        .powered-by {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+        }
+        .invoice-number {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .invoice-number table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .invoice-number table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+        .invoice-number table td:nth-child(2) {
+            text-align: right;
+        }
+        .title {
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+        .invoice-info table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .invoice-info table td {
+            padding: 5px 0;
+        }
+        .invoice-info table td.title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .invoice-details .company-address {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .invoice-details .invoice-to {
+            border-right: 1.5px solid black;
+            padding: 10px;
+            width: calc(50% - 10px);
+        }
+        .invoice-details .invoice-from {
+            border: 1.5px solid #ddd;
+            padding: 10px;
+            width: calc(50% - 10px);
+        }
+        .invoice-details .address-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .invoice-items {
+            width: 100%;
+            border: 1.5px solid black;
+        }
+        .invoice-items .heading {
+            background: #eee;
+            border-bottom: 1.5px solid #ddd;
+            font-weight: bold;
+        }
+        .invoice-items .item {
+            border-bottom: 1.5px solid black;
+        }
+        .invoice-items .item.last {
+            border-bottom: 1.5px solid black;
+        }
+        .invoice-items .total {
+            font-weight: bold;
+        }
+        .invoice-items .total td:nth-child(4) {
+            border-top: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <div class="invoice-header">
+            <div class="company-details">
+                <div class="title">Zylker Electronics Hub</div>
+                <div class="company-address">
+                    14B, Northern Street Greater South Avenue<br>
+                    New York New York 10001 U.S.A
+                </div>
+            </div>
+            <div class="invoice-info">
+                <table>
+                    <tr>
+                        <td class="title">INVOICE</td>
+                    </tr>
+                    <tr>
+                        <td>Invoice #: INV-000003</td>
+                    </tr>
+                    <tr>
+                        <td>Invoice Date: 18 May 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Terms: Due on Receipt</td>
+                    </tr>
+                    <tr>
+                        <td>Due Date: 18 May 2023</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="invoice-number">
+            <table>
+                <tr>
+                    <td class="invoice-to">
+                        <div class="address-title">Bill To</div>
+                        Ms. Mary D. Dunton<br>
+                        1324 Hinkle Lake Road<br>
+                        Needham<br>
+                        02192 Maine
+                    </td>
+                    <td class="invoice-from">
+                        <div class="address-title">Ship To</div>
+                        1324 Hinkle Lake Road<br>
+                        Needham<br>
+                        02192 Maine
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="invoice-items">
+            <table cellpadding="0" cellspacing="0">
+                <tr class="heading">
+                    <td>#</td>
+                    <td>Item & Description</td>
+                    <td>Qty</td>
+                    <td>Rate</td>
+                    <td>Amount</td>
+                </tr>
+                <tr class="item">
+                    <td>1</td>
+                    <td>Camera<br>DSLR camera with advanced shooting capabilities</td>
+                    <td>1</td>
+                    <td>₹899.00</td>
+                    <td>₹899.00</td>
+                </tr>
+                <tr class="item">
+                    <td>2</td>
+                    <td>Fitness Tracker<br>Activity tracker with heart rate monitoring</td>
+                    <td>1</td>
+                    <td>₹129.00</td>
+                    <td>₹129.00</td>
+                </tr>
+                <tr class="item last">
+                    <td>3</td>
+                    <td>Laptop<br>Lightweight laptop with a powerful processor</td>
+                    <td>1</td>
+                    <td>₹1,199.00</td>
+                    <td>₹1,199.00</td>
+                </tr>
+                <tr class="total">
+                    <td colspan="3"></td>
+                    <td>Sub Total</td>
+                    <td>₹2,227.00</td>
+                </tr>
+                <tr class="total">
+                    <td colspan="3"></td>
+                    <td>Tax Rate</td>
+                    <td>5.00%</td>
+                </tr>
+                <tr class="total">
+                    <td colspan="3"></td>
+                    <td>Total</td>
+                    <td>₹2,338.35</td>
+                </tr>
+                <tr class="total">
+                    <td colspan="3"></td>
+                    <td>Balance Due</td>
+                    <td>₹2,338.35</td>
+                </tr>
+            </table>
+        </div>
+        <div class="terms">
+            <strong>Terms & Conditions</strong><br>
+            Full payment is due upon receipt of this invoice.<br>
+            Late payments may incur additional charges or interest as per the applicable laws.
+        </div>
+        <div class="powered-by">
+            POWERED BY <strong>Ezeiatech</strong>
+        </div>
+    </div>
+</body>
+</html>
